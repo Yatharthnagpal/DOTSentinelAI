@@ -1,0 +1,25 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Node dependencies & builds
+node_modules/
+dist/
+.vite/
+
+# Temporary uploads and scratch
+temp_uploads/
+temp/
+scratch/
+.system_generated/
+
+# OS specific files
+.DS_Store
+Thumbs.db
+

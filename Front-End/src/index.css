@@ -1,0 +1,659 @@
+* {
+  box-sizing: border-box;
+}
+
+body, #root {
+  min-height: 100vh;
+  opacity: 1;
+  background-color: #000000;
+  background-image: url("https://www.transparenttextures.com/patterns/buried.png");
+}
+
+/* =====================
+   GLOBAL RESET & BASE
+===================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #EDEBDD;
+  background-color: black;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background-color: black;
+}
+
+/* =====================
+   LINKS & NAV
+===================== */
+
+a {
+  font-weight: 500;
+  color: white;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: rgb(0, 157, 255);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  width: 100%;
+  padding: 1.2rem 2rem;
+  z-index: 100;
+  position: sticky;
+  top: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* =====================
+   HERO SECTION
+===================== */
+
+.parent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 90vh;
+  width: 100%;
+  align-items: center;
+}
+
+.div1 {
+  margin-left: 80px;
+}
+.div1 h1 {
+  font-size: 90px;
+}
+
+.div2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.logo-stack {
+  position: relative;
+  display: inline-block;
+}
+
+.logo-fg {
+  width: 450px;
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.logo-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  z-index: 0;
+  filter: blur(40px);
+  opacity: 0.6;
+}
+
+/* =====================
+   TYPOGRAPHY
+===================== */
+
+.megrim-regular {
+  font-family: "Megrim", system-ui;
+  font-size: 38px;
+}
+
+.gruppo-regular {
+  font-family: "Gruppo", sans-serif;
+  font-size: 210%;
+}
+
+span {
+  color: rgb(0, 157, 255);
+}
+
+h1 {
+  font-size: 3.2em;
+  margin: 0;
+}
+
+/* =====================
+   SERVICES SECTION
+===================== */
+
+.parent-services {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  min-height: 55vh;
+  width: 92%;
+  max-width: 1380px;
+  margin: 0 auto;
+  position: relative;
+  gap: 2rem;
+  z-index: 2;
+  transition: all 0.4s ease;
+}
+
+.div1-services,
+.div2-services,
+.div3-services {
+  width: min(350px, 100%);
+  max-width: 350px;
+  flex: 0 0 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+.parent-services.has-active {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  width: 95%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.active-card-wrap {
+  width: 350px !important;
+  max-width: 350px !important;
+  flex: 0 0 350px !important;
+  flex-shrink: 0 !important;
+}
+
+/* =====================
+   CARD COMPONENT
+===================== */
+
+.card {
+  background-color: rgb(19, 19, 19);
+  background-image: url("https://www.transparenttextures.com/patterns/buried.png");
+  border-radius: 1rem;
+  padding: 0.5rem;
+  color: #fefefe;
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.parent-services .card {
+  width: min(350px, 100%);
+}
+
+.service-item-card {
+  width: 100% !important;
+  max-width: 350px !important;
+  height: 100% !important;
+  min-height: 540px;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+.service-item-card .card__hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.6rem 1.6rem 1.2rem 1.6rem;
+}
+
+.service-item-card .card__job-title {
+  margin: 0.3rem 0 0.8rem 0;
+  font-size: 1.65rem;
+  line-height: 1.25;
+  min-height: 75px;
+  height: 75px;
+  display: block;
+  font-family: "Noto Znamenny Musical Notation", sans-serif;
+}
+
+.service-card-top-tag {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  width: 100%;
+  height: 24px;
+}
+
+.service-num-pill {
+  font-size: 0.72rem;
+  font-family: monospace;
+  font-weight: 700;
+  color: rgb(0, 157, 255);
+  background: rgba(0, 157, 255, 0.12);
+  border: 1px solid rgba(0, 157, 255, 0.35);
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  letter-spacing: 0.5px;
+}
+
+.service-tag-label {
+  font-size: 0.72rem;
+  font-family: monospace;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 600;
+  letter-spacing: 0.8px;
+}
+
+.service-card-desc {
+  font-size: 0.86rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.55;
+  margin: 0.3rem 0 1rem 0;
+  min-height: 108px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.service-card-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-top: auto;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  min-height: 90px;
+  justify-content: center;
+}
+
+.service-feat-chip {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: center;
+}
+
+.service-status-hint {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.card-focused {
+  border-color: rgb(0, 157, 255);
+  box-shadow: 0 0 25px rgba(0, 157, 255, 0.35);
+}
+
+.card__hero {
+  background-color: #0d0d0c;
+  background-image: url("https://www.transparenttextures.com/patterns/snow.png");
+  border-radius: 0.5rem 0.5rem 0 0;
+  padding: 1.5rem;
+}
+
+.card__hero .card__job-title {
+  margin: 2rem 0;
+  font-size: 2rem;
+  font-family: "Noto Znamenny Musical Notation", sans-serif;
+}
+
+.card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  gap: 1rem;
+  height: 56px;
+  box-sizing: border-box;
+}
+
+.card__btn {
+  cursor: pointer;
+  padding: 0.5rem 1.25rem;
+  border-radius: 1rem;
+  border: none;
+  background-color: #141417;
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.card__btn:hover {
+  color: rgb(0, 157, 255);
+}
+
+.card:hover {
+  box-shadow:
+    0 12px 24px rgba(247, 246, 246, 0.25),
+    0 2px 6px rgba(230, 228, 228, 0.03);
+}
+
+/* =====================
+   DROP ZONE
+===================== */
+
+.drop-zone {
+  flex: 1 1 0%;
+  min-width: 0;
+  width: 100%;
+  max-width: 920px;
+  min-height: 480px;
+  max-height: 85vh;
+  overflow-y: auto;
+  border-radius: 16px;
+  padding: 1.8rem;
+  color: #ffffff;
+  background: rgba(14, 14, 17, 0.95);
+  background-image: url("https://www.transparenttextures.com/patterns/buried.png");
+  border: 1px solid rgba(0, 157, 255, 0.4);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 157, 255, 0.15);
+  backdrop-filter: blur(10px);
+  animation: fadeInDrop 0.4s ease forwards;
+}
+
+@keyframes fadeInDrop {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Custom scrollbars inside sliding panels */
+.drop-zone::-webkit-scrollbar {
+  width: 5px;
+}
+.drop-zone::-webkit-scrollbar-track {
+  background: transparent;
+}
+.drop-zone::-webkit-scrollbar-thumb {
+  background: rgba(0, 157, 255, 0.35);
+  border-radius: 999px;
+}
+
+/* ============================================================
+   WIDE CARDS & EXTENDED SECTIONS (Architecture, Explanations, MITRE)
+   ============================================================ */
+
+.architecture-section-wrap,
+.explanations-section-wrap,
+.mitre-section-wrap {
+  width: 90%;
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 5rem 0;
+}
+
+.section-description-text {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.05rem;
+  margin-top: 0.8rem;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.architecture-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3.5rem;
+  width: 100%;
+}
+
+.explanations-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.2rem;
+  margin-top: 3.5rem;
+  width: 100%;
+}
+
+.mitre-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+  width: 100%;
+}
+
+/* Wide Card Enhancements */
+.wide-card {
+  width: 100% !important;
+  min-height: 100%;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.wide-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 157, 255, 0.4);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 157, 255, 0.2);
+}
+
+.wide-card .card__hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.8rem 1.8rem 1.4rem 1.8rem;
+}
+
+.wide-card .card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 1.8rem 1.1rem 1.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.step-pill {
+  font-size: 0.78rem;
+  font-family: monospace;
+  font-weight: 700;
+  color: rgb(0, 157, 255);
+  background: rgba(0, 157, 255, 0.12);
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 157, 255, 0.35);
+  letter-spacing: 0.5px;
+}
+
+.step-tech {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: monospace;
+}
+
+.card-headline {
+  font-family: "Gruppo", sans-serif;
+  font-size: 1.55rem;
+  color: #ffffff;
+  margin: 0.3rem 0 0.8rem 0;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.card-summary {
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.card-expanded-content {
+  margin-top: 1.2rem;
+  padding: 1.1rem;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(0, 157, 255, 0.25);
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+.expanded-title {
+  color: #00f0ff;
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.84rem;
+}
+
+.expanded-desc {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.55;
+}
+
+.card-status-text {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.hero-btn {
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* =====================
+   ABOUT SECTION
+===================== */
+
+.Aboutus {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 50vh;
+  width: 100%;
+  align-items: center;
+  padding: 3vh 6.2vw;
+  text-align: center;
+}
+
+.AboutTitle h1 {
+  margin-top: 5%;
+  text-align: center;
+  font-family: "Gruppo";
+  font-size: 60px;
+}
+
+.Aboutus p {
+  font-size: 19px;
+  text-align: start;
+  line-height: 1.6;
+}
+
+/* =====================
+   FOOTER
+===================== */
+
+footer {
+  text-align: center;
+  color: #837f81;
+  margin-top: 8%;
+  padding-bottom: 3rem;
+  font-size: 0.9rem;
+}
+
+/* =====================
+   MEDIA QUERIES
+===================== */
+
+@media (max-width: 1100px) {
+  .architecture-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .explanations-grid {
+    grid-template-columns: 1fr;
+  }
+  .parent-services {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .parent-services.has-active {
+    flex-direction: column;
+    align-items: center;
+  }
+  .active-card-wrap {
+    width: 100% !important;
+    max-width: 450px !important;
+    flex: 0 0 auto !important;
+  }
+  .drop-zone {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .parent {
+    grid-template-columns: 1fr;
+    height: auto;
+    padding-top: 4rem;
+  }
+  .div1 {
+    margin-left: 20px;
+    text-align: center;
+  }
+  .div1 h1 {
+    font-size: 55px;
+  }
+  nav {
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .Aboutus {
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: 2rem;
+  }
+  .parent-services {
+    flex-direction: column;
+    height: auto;
+  }
+  .drop-zone {
+    width: 100%;
+    max-height: 75vh;
+  }
+  .architecture-grid {
+    grid-template-columns: 1fr;
+  }
+  .mitre-grid {
+    grid-template-columns: 1fr;
+  }
+}
