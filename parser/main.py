@@ -79,6 +79,17 @@ TEMP_DIR = "temp_uploads"
 os.makedirs(TEMP_DIR, exist_ok=True)
 
 
+@app.get("/")
+def root():
+    return {
+        "status": "online",
+        "service": "DOT Sentinel AI Core API",
+        "version": "2.0.0",
+        "docs_url": "/docs",
+        "health_url": "/health"
+    }
+
+
 # ---------------------------------------------------------------------------
 # Pydantic Schemas for Vulnerability Scanner
 # ---------------------------------------------------------------------------
