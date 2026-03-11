@@ -1,6 +1,10 @@
 # DOT Sentinel AI 🛡️
 ### Autonomous Network Intrusion Detection & Security Posture Intelligence
 
+[![Live Demo](https://img.shields.io/badge/Live%20Dashboard-dot--sentinel--ai.vercel.app-009dff?style=for-the-badge&logo=vercel)](https://dot-sentinel-ai.vercel.app/)
+
+> **🌐 Live Deployment:** [https://dot-sentinel-ai.vercel.app/](https://dot-sentinel-ai.vercel.app/)
+
 DOT Sentinel AI is a next-generation cybersecurity platform designed to bridge the gap between raw network telemetry and actionable SOC intelligence. It autonomously parses network packet captures (PCAP), detects zero-day anomalies using unsupervised machine learning, audits defensive posture across 4 security pillars, and translates complex security telemetry into executive threat advisories using Agentic AI and the MITRE ATT&CK framework.
 
 ---
